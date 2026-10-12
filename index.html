@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConnectZone — Starlink & Fiber Setup | Wi-Fi Solutions in Zvishavane</title>
+  <meta name="description" content="ConnectZone provides professional Starlink & Fiber setup, Wi-Fi dead-zone elimination, and networking solutions in Zvishavane. TP-Link, Ubiquiti, MikroTik and more." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#eef7ff',
+              100: '#d9edff',
+              200: '#bce0ff',
+              300: '#8eccff',
+              400: '#59b0ff',
+              500: '#338dff',
+              600: '#1a6df5',
+              700: '#1357e1',
+              800: '#1646b6',
+              900: '#183d8f',
+              950: '#132757',
+            },
+            accent: {
+              50:  '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #338dff 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(51, 141, 255, 0.15);
+    }
+    .hero-pattern {
+      background-image: radial-gradient(circle at 20% 50%, rgba(51,141,255,0.08) 0%, transparent 50%),
+                         radial-gradient(circle at 80% 20%, rgba(16,185,129,0.08) 0%, transparent 50%);
+    }
+    .img-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .group:hover .img-cover {
+      transform: scale(1.06);
+    }
+    .service-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.75rem 0.75rem 0 0;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-white text-gray-800 antialiased">
+
+  <!-- ═══════════════════════════════════════════
+       HEADER & NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center shadow-md shadow-brand-600/30 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0" />
+            </svg>
+          </div>
+          <span class="text-xl font-extrabold tracking-tight">
+            <span class="text-brand-700">Connect</span><span class="text-accent-500">ZONE</span>
+          </span>
+        </a>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="#services" class="hover:text-brand-600 transition-colors">Services</a>
+          <a href="#catalog" class="hover:text-brand-600 transition-colors">Catalog</a>
+          <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
+          <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+        </nav>
+        <!-- CTA + Mobile toggle -->
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20enquire%20about%20your%20services."
+             target="_blank" rel="noopener"
+             class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold shadow-lg shadow-accent-500/25 transition-all hover:scale-105">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Contact Us on WhatsApp
+          </a>
+          <button id="mobile-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-100">
+        <nav class="flex flex-col gap-1 pt-3">
+          <a href="#services" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-brand-50 text-gray-700 font-medium transition">Services</a>
+          <a href="#catalog" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-brand-50 text-gray-700 font-medium transition">Catalog</a>
+          <a href="#about" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-brand-50 text-gray-700 font-medium transition">About</a>
+          <a href="#contact" class="mobile-link px-3 py-2.5 rounded-lg hover:bg-brand-50 text-gray-700 font-medium transition">Contact</a>
+          <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20enquire%20about%20your%20services."
+             target="_blank" rel="noopener"
+             class="mt-2 flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-accent-500 text-white text-sm font-semibold">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Contact Us on WhatsApp
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="relative pt-20 lg:pt-0 overflow-hidden">
+    <div class="grid lg:grid-cols-2 min-h-[90vh]">
+      <!-- Left: Content -->
+      <div class="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-20 lg:py-0 hero-pattern relative">
+        <div class="absolute -top-40 -left-40 w-[400px] h-[400px] bg-brand-100 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+        <div class="relative max-w-xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium mb-6 fade-up">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
+            </span>
+            Serving Zvishavane &amp; Surrounding Areas
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6 fade-up">
+            Professional <span class="text-gradient">Starlink &amp; Fiber</span> Setup &amp; <span class="text-gradient">Wi-Fi Dead-Zone</span> Elimination
+          </h1>
+          <p class="text-lg text-gray-500 mb-10 fade-up">
+            From Starlink dish installation to whole-home mesh networking — we get you online fast with enterprise-grade reliability in Zvishavane.
+          </p>
+          <div class="flex flex-col sm:flex-row items-start gap-4 fade-up">
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%20need%20help%20with%20my%20internet%20setup."
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent-500 hover:bg-accent-600 text-white font-bold text-base shadow-xl shadow-accent-500/30 transition-all hover:scale-105">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Order on WhatsApp
+            </a>
+            <a href="#services"
+               class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white border-2 border-gray-200 hover:border-brand-300 text-gray-700 hover:text-brand-700 font-bold text-base transition-all hover:scale-105">
+              Explore Services
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+          </div>
+          <!-- Trust badges -->
+          <div class="mt-12 flex flex-wrap items-center gap-6 text-gray-400 text-sm font-medium fade-up">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Certified Installers
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Same-Day Service
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Top Brands
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Hero Image -->
+      <div class="hidden lg:block relative">
+        <img
+          src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80"
+          alt="Professional technician installing a Starlink satellite dish on a rooftop"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="services" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider mb-4">What We Do</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Our Services</h2>
+        <p class="mt-4 max-w-xl mx-auto text-gray-500 text-lg">End-to-end connectivity solutions — from satellite dish to every corner of your home or office.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <!-- Card 1 — In-Home Service -->
+        <div class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="h-48 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80"
+              alt="Technician setting up a Wi-Fi router and network equipment in a modern home"
+              class="img-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-4 group-hover:bg-brand-100 transition -mt-10 relative z-10 shadow-lg border-2 border-white">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2">In-Home Service</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Professional on-site Starlink and fibre installation, router configuration, and full network setup in your home or office.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 — Wi-Fi Extenders -->
+        <div class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="h-48 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&w=600&q=80"
+              alt="White mesh Wi-Fi router system providing whole-home wireless coverage"
+              class="img-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-xl bg-accent-50 flex items-center justify-center mb-4 group-hover:bg-accent-100 transition -mt-10 relative z-10 shadow-lg border-2 border-white">
+              <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75h.008v.008H12v-.008z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Wi-Fi Extenders &amp; Mesh</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Eliminate dead zones with strategically placed Wi-Fi extenders, repeaters, and whole-home mesh systems for seamless coverage.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 — Gigabit Backhaul -->
+        <div class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="h-48 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80"
+              alt="Fiber optic cables with glowing lights representing high-speed data backhaul"
+              class="img-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mb-4 group-hover:bg-purple-100 transition -mt-10 relative z-10 shadow-lg border-2 border-white">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Gigabit Backhaul</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">High-speed ethernet backbone and point-to-point wireless links for businesses needing rock-solid, multi-gigabit throughput.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 — Brand Support -->
+        <div class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="h-48 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=600&q=80"
+              alt="Professional networking equipment rack with routers, switches and cables"
+              class="img-cover"
+            />
+          </div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4 group-hover:bg-orange-100 transition -mt-10 relative z-10 shadow-lg border-2 border-white">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Brand Support</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Expert configuration and support for <strong>TP-Link</strong>, <strong>Ubiquiti</strong>, <strong>MikroTik</strong>, Comfast, and other leading brands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       PRODUCT CATALOG
+  ═══════════════════════════════════════════ -->
+  <section id="catalog" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block px-3 py-1 rounded-full bg-accent-400/10 text-accent-600 text-xs font-bold uppercase tracking-wider mb-4">Shop Now</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Product Catalog</h2>
+        <p class="mt-4 max-w-xl mx-auto text-gray-500 text-lg">Quality networking gear and accessories at unbeatable prices. Order directly via WhatsApp.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+        <!-- Product 1 — Wireless-N Repeater -->
+        <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="relative h-52 overflow-hidden bg-gray-100">
+            <img
+              src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80"
+              alt="White wireless Wi-Fi repeater range extender plugged into wall socket"
+              class="img-cover"
+            />
+            <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">$15</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-1">Wireless-N Repeater</h3>
+            <p class="text-gray-500 text-sm mb-5">300 Mbps Wi-Fi range extender. Plug-and-play setup to eliminate dead zones instantly.</p>
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Wireless-N%20Repeater%20(%2415)."
+               target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 2 — Comfast Adapter -->
+        <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="relative h-52 overflow-hidden bg-gray-100">
+            <img
+              src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=600&q=80"
+              alt="USB wireless Wi-Fi adapter dongle for computer connectivity"
+              class="img-cover"
+            />
+            <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-purple-600 text-white text-sm font-bold shadow-lg">$15</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-1">Comfast Wi-Fi Adapter</h3>
+            <p class="text-gray-500 text-sm mb-5">USB wireless adapter for desktops and laptops. Dual-band support for fast, reliable connections.</p>
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Comfast%20Wi-Fi%20Adapter%20(%2415)."
+               target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 3 — TV Mount (Small) -->
+        <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="relative h-52 overflow-hidden bg-gray-100">
+            <img
+              src="https://images.unsplash.com/photo-1593305841991-05c297ba4e36?auto=format&fit=crop&w=600&q=80"
+              alt="Flat screen TV mounted on a white wall with sleek bracket"
+              class="img-cover"
+            />
+            <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-orange-500 text-white text-sm font-bold shadow-lg">$10</span>
+            <span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/90 text-orange-600 text-xs font-bold shadow">14" – 42"</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-1">TV Wall Mount (Small)</h3>
+            <p class="text-gray-500 text-sm mb-5">Fixed wall mount bracket for 14" – 42" TVs. Sturdy steel construction with easy installation.</p>
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20TV%20Wall%20Mount%20Small%20(%2410)."
+               target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Product 4 — TV Mount (Large) -->
+        <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="relative h-52 overflow-hidden bg-gray-100">
+            <img
+              src="https://images.unsplash.com/photo-1615986201152-7686a4867f30?auto=format&fit=crop&w=600&q=80"
+              alt="Large flat screen TV wall mounted in a modern living room"
+              class="img-cover"
+            />
+            <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-red-500 text-white text-sm font-bold shadow-lg">$35</span>
+            <span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/90 text-red-600 text-xs font-bold shadow">26" – 63"</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold mb-1">TV Wall Mount (Large)</h3>
+            <p class="text-gray-500 text-sm mb-5">Heavy-duty swivel &amp; tilt mount for 26" – 63" TVs. Full-motion arm with cable management.</p>
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20TV%20Wall%20Mount%20Large%20(%2435)."
+               target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+
+          <!-- Product 5 — Starlink Mini Kit -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img
+                src="assets/starlink-mini-kit.jpg"
+                alt="Starlink Mini kit with terminal, power supply, and cable"
+                class="img-cover"
+              />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">$250</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">Starlink Mini Kit</h3>
+              <p class="text-gray-500 text-sm mb-5">Compact satellite internet kit with the Starlink Mini terminal, power supply, and cable.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Starlink%20Mini%20Kit%20(%24250)."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 6 — Starlink Standard Kit -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img src="assets/starlink-standard-kit.jpg" alt="Starlink Standard satellite kit" class="img-cover" />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">$450</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">Starlink Standard Kit</h3>
+              <p class="text-gray-500 text-sm mb-5">Standard Starlink kit for satellite internet connectivity.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Starlink%20Standard%20Kit%20(%24450)."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 7 — CPE Pro Wi-Fi 6 Router -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img src="assets/cpe-pro-wifi6-router.jpg" alt="CPE Pro Wi-Fi 6 indoor router" class="img-cover" />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">$60</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">CPE Pro Wi-Fi 6 Indoor Router</h3>
+              <p class="text-gray-500 text-sm mb-5">CPE Pro indoor router with Wi-Fi 6.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20CPE%20Pro%20Wi-Fi%206%20Indoor%20Router%20(%2460)."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 8 — Cudy AX3000 Outdoor -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img src="assets/cudy-ax3000-outdoor.jpg" alt="Cudy AX3000 outdoor Wi-Fi unit" class="img-cover" />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">$140</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">Cudy AX3000 Outdoor</h3>
+              <p class="text-gray-500 text-sm mb-5">Cudy AX3000 Wi-Fi unit for outdoor connectivity.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Cudy%20AX3000%20Outdoor%20(%24140)."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 9 — Tenda AC5 Router -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img src="assets/tenda-ac5-router.jpg" alt="Tenda AC1200 dual-band Wi-Fi router, model AC5" class="img-cover" />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">$40</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">Tenda AC1200 Dual-Band Router (AC5)</h3>
+              <p class="text-gray-500 text-sm mb-5">Tenda AC1200 smart dual-band Wi-Fi router, model AC5.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Tenda%20AC1200%20Dual-Band%20Router%20(AC5)%20(%2440)."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 10 — RJ45 Boots -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img src="assets/rj45-boots.jpg" alt="RJ45 cable connector boots" class="img-cover" />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">15 for $1</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">RJ45 Boots (15 for $1)</h3>
+              <p class="text-gray-500 text-sm mb-5">Protective boots for RJ45 cable connectors. Pack of 15 for $1.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%2015%20RJ45%20boots%20for%20%241."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 11 — RJ45 Pass-Through Connectors -->
+          <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+            <div class="relative h-52 overflow-hidden bg-gray-100">
+              <img src="assets/rj45-pass-through.jpg" alt="RJ45 pass-through cable connectors" class="img-cover" />
+              <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-600 text-white text-sm font-bold shadow-lg">10 for $1</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-1">RJ45 Pass-Through Connectors (10 for $1)</h3>
+              <p class="text-gray-500 text-sm mb-5">Pass-through connectors for RJ45 network cables. Pack of 10 for $1.</p>
+              <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%2010%20RJ45%20pass-through%20connectors%20for%20%241."
+                 target="_blank" rel="noopener"
+                 class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all hover:scale-[1.02]">
+                Order on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          </div>
+
+        <!-- Featured Product — Starlink Pole Adapter -->
+      <div class="mt-8 group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+        <div class="flex flex-col md:flex-row">
+          <div class="relative md:w-1/2 h-64 md:h-auto overflow-hidden bg-gray-100">
+            <img
+              src="assets/starlink-pole-adapter.webp"
+              alt="Starlink pole adapter"
+              class="img-cover"
+            />
+            <span class="absolute top-4 right-4 inline-flex items-center px-4 py-1.5 rounded-full bg-brand-600 text-white text-base font-bold shadow-lg">$45</span>
+            <span class="absolute top-4 left-4 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 text-brand-700 text-xs font-bold shadow">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              Best Seller
+            </span>
+          </div>
+          <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-3">Starlink Pole Adapter</h3>
+            <p class="text-gray-500 leading-relaxed mb-6">Universal pole mount adapter designed for Starlink dishes. Heavy-duty galvanised steel bracket for secure, weather-proof rooftop or pole installation. Compatible with all Starlink dish generations.</p>
+            <ul class="space-y-2 mb-8 text-sm text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Heavy-duty galvanised steel
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Weather-proof for outdoor mounting
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Universal fit for all Starlink models
+              </li>
+            </ul>
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20order%20a%20Starlink%20Pole%20Adapter%20(%2445)."
+               target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-semibold transition-all hover:scale-[1.02]">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT / WHY US SECTION
+  ═══════════════════════════════════════════ -->
+  <section id="about" class="py-20 lg:py-28 bg-brand-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.15&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Left content -->
+        <div class="fade-up">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/10 text-brand-300 text-xs font-bold uppercase tracking-wider mb-6">Why Choose Us</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">Zvishavane's Trusted Connectivity Partner</h2>
+          <p class="text-brand-200 text-lg leading-relaxed mb-8">
+            We don't just sell equipment — we design, install, and support complete networking solutions. Whether you're streaming, working from home, or running a business, ConnectZone ensures every device stays connected.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-brand-950 font-bold text-sm hover:bg-brand-100 transition">Get in Touch</a>
+            <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%20have%20a%20question."
+               target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-white/20 text-white font-bold text-sm hover:bg-white/10 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+        <!-- Right: Image + Stats overlay -->
+        <div class="relative fade-up">
+          <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80"
+              alt="Network engineer working on server rack with ethernet cables"
+              class="w-full h-80 object-cover"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-4 mt-6">
+            <div class="bg-white/5 backdrop-blur rounded-2xl p-5 border border-white/10">
+              <div class="text-3xl font-black text-accent-400 mb-1">500+</div>
+              <div class="text-brand-300 text-sm font-medium">Installations Completed</div>
+            </div>
+            <div class="bg-white/5 backdrop-blur rounded-2xl p-5 border border-white/10">
+              <div class="text-3xl font-black text-accent-400 mb-1">24/7</div>
+              <div class="text-brand-300 text-sm font-medium">WhatsApp Support</div>
+            </div>
+            <div class="bg-white/5 backdrop-blur rounded-2xl p-5 border border-white/10">
+              <div class="text-3xl font-black text-accent-400 mb-1">5+</div>
+              <div class="text-brand-300 text-sm font-medium">Brands Supported</div>
+            </div>
+            <div class="bg-white/5 backdrop-blur rounded-2xl p-5 border border-white/10">
+              <div class="text-3xl font-black text-accent-400 mb-1">100%</div>
+              <div class="text-brand-300 text-sm font-medium">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT / BUSINESS INFO
+  ═══════════════════════════════════════════ -->
+  <section id="contact" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider mb-4">Get In Touch</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Contact Us</h2>
+        <p class="mt-4 max-w-xl mx-auto text-gray-500 text-lg">Ready to upgrade your connectivity? Reach out — we'd love to help.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Address -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="w-14 h-14 rounded-full bg-brand-50 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Our Address</h3>
+          <p class="text-gray-500">602/3 Turner Road<br />Zvishavane, Zimbabwe</p>
+        </div>
+        <!-- Email -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="w-14 h-14 rounded-full bg-accent-50 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Email Us</h3>
+          <a href="mailto:bdzimba89@gmail.com" class="text-brand-600 hover:text-brand-700 font-medium transition">bdzimba89@gmail.com</a>
+        </div>
+        <!-- Working Hours -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
+          <div class="w-14 h-14 rounded-full bg-purple-50 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Working Hours</h3>
+          <p class="text-gray-500">Monday – Saturday<br /><span class="font-semibold text-gray-700">09:00 – 19:00</span></p>
+        </div>
+      </div>
+
+      <!-- Large WhatsApp CTA -->
+      <div class="mt-12 text-center fade-up">
+        <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20enquire%20about%20your%20services."
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-accent-500 hover:bg-accent-600 text-white text-lg font-bold shadow-xl shadow-accent-500/30 transition-all hover:scale-105">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Contact Us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"/>
+            </svg>
+          </div>
+          <span class="text-sm">
+            &copy; <span id="year"></span> <span class="text-white font-semibold">ConnectZone</span>. All rights reserved.
+          </span>
+        </div>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="#services" class="hover:text-white transition">Services</a>
+          <a href="#catalog" class="hover:text-white transition">Catalog</a>
+          <a href="#about" class="hover:text-white transition">About</a>
+          <a href="#contact" class="hover:text-white transition">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+  ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/263782673842?text=Hi%20ConnectZone%2C%20I%27d%20like%20to%20enquire%20about%20your%20services."
+     target="_blank" rel="noopener"
+     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-xl shadow-green-500/30 flex items-center justify-center transition-all hover:scale-110"
+     aria-label="Chat on WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.507 3.932 1.396 5.608L.057 23.534a.5.5 0 00.61.61l5.926-1.339A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.582l-.386-.232-3.516.794.794-3.516-.232-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════════════ -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    document.querySelectorAll('.mobile-link').forEach(link =>
+      link.addEventListener('click', () => menu.classList.add('hidden'))
+    );
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () =>
+      header.classList.toggle('shadow-md', window.scrollY > 20)
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
