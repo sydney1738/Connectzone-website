@@ -81,6 +81,16 @@
       object-fit: cover;
       border-radius: 0.75rem 0.75rem 0 0;
     }
+    .tv-mount-small-image {
+      object-fit: contain;
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+      padding: 1rem;
+    }
+    .tv-mount-large-image {
+      object-fit: contain;
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+      padding: 0.75rem;
+    }
   </style>
 </head>
 
@@ -368,9 +378,9 @@
         <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
           <div class="relative h-52 overflow-hidden bg-gray-100">
             <img
-              src="https://images.unsplash.com/photo-1593305841991-05c297ba4e36?auto=format&fit=crop&w=600&q=80"
-              alt="Flat screen TV mounted on a white wall with sleek bracket"
-              class="img-cover"
+              src="assets/tv-wall-mount-small.png"
+              alt="TV wall mount small product box"
+              class="img-cover tv-mount-small-image"
             />
             <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-orange-500 text-white text-sm font-bold shadow-lg">$10</span>
             <span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/90 text-orange-600 text-xs font-bold shadow">14" – 42"</span>
@@ -391,9 +401,9 @@
         <div class="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm card-glow transition-all duration-300 hover:-translate-y-1 fade-up">
           <div class="relative h-52 overflow-hidden bg-gray-100">
             <img
-              src="https://images.unsplash.com/photo-1615986201152-7686a4867f30?auto=format&fit=crop&w=600&q=80"
-              alt="Large flat screen TV wall mounted in a modern living room"
-              class="img-cover"
+              src="assets/tv-wall-mount-large.png"
+              alt="Large full-motion TV wall mount bracket product image"
+              class="img-cover tv-mount-large-image"
             />
             <span class="absolute top-3 right-3 inline-flex items-center px-3 py-1 rounded-full bg-red-500 text-white text-sm font-bold shadow-lg">$35</span>
             <span class="absolute top-3 left-3 inline-flex items-center px-2.5 py-0.5 rounded-full bg-white/90 text-red-600 text-xs font-bold shadow">26" – 63"</span>
